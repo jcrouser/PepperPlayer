@@ -1,0 +1,8 @@
+.tracks div{
+    padding:20px;
+    padding-left: 20px;
+    text-align: left;
+}
+.tracks div:hover{
+    background-color: #08010E;
+}

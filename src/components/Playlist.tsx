@@ -1,18 +1,18 @@
 function Playlist() {
 
     return (
-        <>
-            <p>Track 0</p>
-            <p>Track 1</p>
-            <p>Track 2</p>
-            <p>Track 3</p>
-            <p>Track 4</p>
-            <p>Track 5</p>
-            <p>Track 6</p>
-            <p>Track 7</p>
-            <p>Track 8</p>
-            <p>Track 9</p>
-        </>
+        <div className="tracks">
+            <div>Track 0</div>
+            <div>Track 1</div>
+            <div>Track 2</div>
+            <div>Track 3</div>
+            <div>Track 4</div>
+            <div>Track 5</div>
+            <div>Track 6</div>
+            <div>Track 7</div>
+            <div>Track 8</div>
+            <div>Track 9</div>
+        </div>
     )
 }
 
