@@ -6,6 +6,7 @@ import './styles/timeline.css'
 import './styles/volumeSlider.css'
 import './styles/homeScreenAlbum.css'
 import Player from './components/Player.tsx'
+import './styles/tracks.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
