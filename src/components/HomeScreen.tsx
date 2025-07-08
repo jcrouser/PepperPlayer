@@ -1,14 +1,12 @@
 import image from "../assets/blank_cd.jpg"
+import HomeScreenAlbum from "./HomeScreenAlbum"
 
 function HomeScreen() {
 
 
     return (
         <>
-            <img src={image} width={200}/>
-            <img src={image} width={200}/>
-            <img src={image} width={200}/>
-            <img src={image} width={200}/>
+            <HomeScreenAlbum />
         </>
     )
 }

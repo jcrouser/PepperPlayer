@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './styles/index.css'
 import './styles/timeline.css'
 import './styles/volumeSlider.css'
+import './styles/homeScreenAlbum.css'
 import Player from './components/Player.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
