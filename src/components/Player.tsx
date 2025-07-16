@@ -8,15 +8,15 @@ import H5AudioPlayer from "react-h5-audio-player";
 
 function Player() {
 	let playlist = [
-		'/src/assets/music2.flac',
-		'/src/assets/music.flac'
+		'/src/assets/music.flac',
+		'/src/assets/music2.flac'
 	];
 
-	const [currentSongData, setCurrentSongData] = useState(new SongData(playlist[0]));
+	let currentTrackIndex = 0;
+	const [currentSongData, setCurrentSongData] = useState(new SongData(playlist[currentTrackIndex]));
 	const [volumeLevel, setVolumeLevel] = useState(0.3)
 	const [seconds, setSeconds] = useState(0)
 	// const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-	let currentTrackIndex = 0;
 	
 	const playerRef = useRef<H5AudioPlayer & { audio: React.RefObject<HTMLAudioElement> }>(null);
 
