@@ -8,14 +8,15 @@ import H5AudioPlayer from "react-h5-audio-player";
 
 function Player() {
 	let playlist = [
-		'/src/assets/music.flac',
-		'/src/assets/music2.flac'
+		'/src/assets/music2.flac',
+		'/src/assets/music.flac'
 	];
 
 	const [currentSongData, setCurrentSongData] = useState(new SongData(playlist[0]));
 	const [volumeLevel, setVolumeLevel] = useState(0.3)
 	const [seconds, setSeconds] = useState(0)
-	const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	// const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+	let currentTrackIndex = 0;
 	
 	const playerRef = useRef<H5AudioPlayer & { audio: React.RefObject<HTMLAudioElement> }>(null);
 
@@ -41,17 +42,23 @@ function Player() {
 	}, [volumeLevel]);
 
 	const handleClickNext = () => {
-		setCurrentTrackIndex(currentTrackIndex >= playlist.length-1 ? 0 : currentTrackIndex+1);
-		// setCurrentSongData(new SongData(playlist[currentTrackIndex]))
+		// setCurrentTrackIndex(currentTrackIndex >= playlist.length-1 ? 0 : currentTrackIndex+1);
+		// setCurrentTrackIndex(1);
+		currentTrackIndex = 1;
+		console.log("set track index to" + currentTrackIndex)
+		let newSongData = new SongData(playlist[currentTrackIndex]);
+		console.log("created new song data"+newSongData)
+		setCurrentSongData(newSongData);
+		console.log("set new song data" + newSongData)
 	};
 
-	const handleClickPrev = () => {
-		setCurrentTrackIndex(currentTrackIndex-1 < 0 ? playlist.length-1 : currentTrackIndex-1);
-		if(currentTrackIndex < 0) {
-			setCurrentTrackIndex(playlist.length - 1)
-		}
-		// setCurrentSongData(new SongData(playlist[currentTrackIndex]))
-	};
+	// const handleClickPrev = () => {
+	// 	setCurrentTrackIndex(currentTrackIndex-1 < 0 ? playlist.length-1 : currentTrackIndex-1);
+	// 	if(currentTrackIndex < 0) {
+	// 		setCurrentTrackIndex(playlist.length - 1)
+	// 	}
+	// 	setCurrentSongData(new SongData(playlist[currentTrackIndex]))
+	// };
 
 	const handleVolumeChange = (newVolume:number) => {
 		setVolumeLevel(newVolume);
@@ -104,7 +111,7 @@ function Player() {
 				showSkipControls={true}
 				showJumpControls={false}
 				onClickNext={handleClickNext}
-				onClickPrevious={handleClickPrev}
+				// onClickPrevious={handleClickPrev}
 				volume={volumeLevel}
 				autoPlayAfterSrcChange
 			/>

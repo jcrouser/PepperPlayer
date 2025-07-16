@@ -11,6 +11,7 @@ class SongData {
 
 	constructor(filePath : string) {
 		this.FilePath = filePath;
+		console.log(this.FilePath);
 		GetSongData(this);
 	}
 
@@ -43,9 +44,12 @@ class SongData {
 	}
 }
 
+// JORDAN THIS IS THE ISSUE AREA
 function GetSongData(songData:SongData){
+	console.log("Getting song data")
 	useEffect(() => {
 		const GetSongDataAsync = async () => {
+			console.log("Started async function")
 			fetch(songData.FilePath)
 				.then(response => response.blob())
 				.then(blob => parseBlob(blob))
@@ -55,7 +59,6 @@ function GetSongData(songData:SongData){
 				.then(blob => songData.UpdateTrackInfo())
 				.then(blob => console.log("Data updated"))
 		}
-
 		GetSongDataAsync();
 	}, []);
 }
