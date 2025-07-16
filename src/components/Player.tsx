@@ -44,21 +44,27 @@ function Player() {
 	const handleClickNext = () => {
 		// setCurrentTrackIndex(currentTrackIndex >= playlist.length-1 ? 0 : currentTrackIndex+1);
 		// setCurrentTrackIndex(1);
-		currentTrackIndex = 1;
+		currentTrackIndex++;
+		if(currentTrackIndex >= playlist.length) {
+			// setCurrentTrackIndex(playlist.length - 1)
+			currentTrackIndex = 0;
+		}
 		console.log("set track index to" + currentTrackIndex)
 		let newSongData = new SongData(playlist[currentTrackIndex]);
-		console.log("created new song data"+newSongData)
+		console.log("created new song data"+newSongData);
 		setCurrentSongData(newSongData);
-		console.log("set new song data" + newSongData)
+		console.log("set new song data" + newSongData);
 	};
 
-	// const handleClickPrev = () => {
-	// 	setCurrentTrackIndex(currentTrackIndex-1 < 0 ? playlist.length-1 : currentTrackIndex-1);
-	// 	if(currentTrackIndex < 0) {
-	// 		setCurrentTrackIndex(playlist.length - 1)
-	// 	}
-	// 	setCurrentSongData(new SongData(playlist[currentTrackIndex]))
-	// };
+	const handleClickPrev = () => {
+		currentTrackIndex --;
+		// setCurrentTrackIndex(currentTrackIndex-1 < 0 ? playlist.length-1 : currentTrackIndex-1);
+		if(currentTrackIndex < 0) {
+			// setCurrentTrackIndex(playlist.length - 1)
+			currentTrackIndex = playlist.length -1
+		}
+		setCurrentSongData(new SongData(playlist[currentTrackIndex]))
+	};
 
 	const handleVolumeChange = (newVolume:number) => {
 		setVolumeLevel(newVolume);
@@ -111,7 +117,7 @@ function Player() {
 				showSkipControls={true}
 				showJumpControls={false}
 				onClickNext={handleClickNext}
-				// onClickPrevious={handleClickPrev}
+				onClickPrevious={handleClickPrev}
 				volume={volumeLevel}
 				autoPlayAfterSrcChange
 			/>
