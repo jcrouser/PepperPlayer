@@ -30,3 +30,13 @@ The intended file structure within your music folder is:
 ```
 
 Folder and file names do not matter and are not read, but this structure will allow the program to automatically filter by album. All audio files in the `Music` folder will be read, even if not in this structure.
+
+## Initial setup for development
+
+- make sure Node is installed
+
+- open terminal
+
+- run `npm install`
+
+- run `npm run dev`
